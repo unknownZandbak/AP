@@ -5,12 +5,12 @@ using std::string, std::ostream;
 class Game
 {
     private:
-        string Title;
-        int ReleaseDate;
-        double OriginalPrice;
+        string title;
+        int releaseDate;
+        double originalPrice;
 
     public:
-        Game(string Title, int ReleaseDate, double OriginalPrice);
+        Game(string title, int releaseDate, double originalPrice);
         ~Game();
 
         float CalculateCurrentPrice();
@@ -19,7 +19,7 @@ class Game
         int getReleaseDate();
         double getOriginalPrice();
 
-        void setTitle();
-        void setReleaseDate();
-        void setOriginalPrice();
+        void setTitle(string title);
+        void setReleaseDate(int releaseDate);
+        void setOriginalPrice(float price);
 };

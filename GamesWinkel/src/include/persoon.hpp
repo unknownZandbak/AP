@@ -15,17 +15,17 @@ class Person
         Person(string name, float budget);
         Person();
         ~Person();
-        
-        string buy(Game game);
-        string sell(Game game, Person person);
-        
-        void addGame();
-        void removeGame();
-        void print_details();
 
         vector<Game> getGames();
         float getBudget();
+        
+        void buy(Game game);
+        void sell(Game game, Person person);
+        
+        void addGame(Game game);
+        void removeGame(Game game);
+        void print_details();
 
-        void setBudget();
-        void setGames();
+        void setBudget(float budget);
+        void setGames(vector<Game>, games);
 };
