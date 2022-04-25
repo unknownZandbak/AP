@@ -27,5 +27,5 @@ class Person
         void print_details();
 
         void setBudget(float budget);
-        void setGames(vector<Game>, games);
+        void setGames(vector<Game> games);
 };
