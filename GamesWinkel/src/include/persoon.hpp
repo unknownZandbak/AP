@@ -4,21 +4,28 @@
 
 using std::string, std::ostream, std::vector;
 
-class Persoon
+class Person
 {
     private:
-        string naam;
-        float balans;
+        string name;
+        float budget;
         vector<Game> games_in_bezit;
 
     public:
-        Persoon(string naam, float balans);
-        Persoon();
-        ~Persoon();
+        Person(string name, float budget);
+        Person();
+        ~Person();
         
-        string koop(Game game);
-        string verkoop(Game game, Persoon persoon);
-        vector<Game> get_games();
-
+        string buy(Game game);
+        string sell(Game game, Person person);
+        
+        void addGame();
+        void removeGame();
         void print_details();
+
+        vector<Game> getGames();
+        float getBudget();
+
+        void setBudget();
+        void setGames();
 };
