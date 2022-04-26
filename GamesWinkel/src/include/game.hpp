@@ -21,5 +21,5 @@ class Game
 
         void setTitle(string title);
         void setReleaseDate(int releaseDate);
-        void setOriginalPrice(float price);
+        void setOriginalPrice(float originalPrice);
 };
