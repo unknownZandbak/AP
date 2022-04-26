@@ -17,20 +17,21 @@ int main()
     Game g2("Need for Speed: Rivals", releaseDate2 , 45.99);
     Game g3("Need for Speed: Rivals", releaseDate2 , 45.99);
     
-    Persoon p1("Eric", 200);
-    Persoon p2("Hans", 55);
-    Persoon p3("Arno", 185);
+    Person p1("Eric", 200);
+    Person p2("Hans", 55);
+    Person p3("Arno", 185);
     
     // Druk de volgende transacties af (pas de code aan)
 
     cout << "================" << endl;
-    p1.koop(g1);
-    p1.koop(g2);
-    p1.koop(g3);
-    p2.koop(g2);
-    p2.koop(g1);
-    p3.koop(g3);
+    p1.buy(g1);
+    p1.buy(g2);
+    p1.buy(g3);
+    p2.buy(g2);
+    p2.buy(g1);
+    p3.buy(g3);
     
+    cout << tm_local->tm_year + 1900 << endl;
     // Druk personen p1, p2 en p3 nu af naar de console
     
     cout << "================" << endl;
@@ -41,9 +42,9 @@ int main()
     // Druk de volgende transacties af (pas de code aan)
 
     cout << "================" << endl;
-    p1.verkoop(g1, p3);
-    p2.verkoop(g2, p3);
-    p2.verkoop(g1, p1);
+    p1.sell(g1, p3);
+    p2.sell(g2, p3);
+    p2.sell(g1, p1);
     
     // Druk personen p1, p2 en p3 nu af naar de console
     
