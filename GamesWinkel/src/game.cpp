@@ -1,10 +1,10 @@
 #include "include/game.hpp"
 
-Game::Game(string naam, int release_datum, double prijs)
+Game::Game(string title, int releaseDate, double originalPrice)
 {
-    this->naam = naam;
-    this->release_datum = release_datum;
-    this->prijs = prijs;
+    this->title = title;
+    this->releaseDate = releaseDate;
+    this->originalPrice = originalPrice;
 }
 
 Game::~Game()
@@ -12,17 +12,48 @@ Game::~Game()
     
 }
 
-string Game::get_naam()
-{
-    return naam;
+float Game::CalculateCurrentPrice()
+{   
+    time_t curr_time = time(NULL);
+    tm *tm_local = localtime(&curr_time);
+
+    int timeDiff = (tm_local->tm_year + 1900)-releaseDate;
+    float price = originalPrice;
+
+    while (timeDiff > 0)
+    {   
+        timeDiff -= 1;
+        price = price * .3;
+    }
+    return price;
 }
 
-int Game::get_release_datum()
+string Game::getTitle()
 {
-    return release_datum;
+    return title;
 }
 
-double Game::get_prijs()
+int Game::getReleaseDate()
 {
-    return prijs;
+    return releaseDate;
+}
+
+double Game::getOriginalPrice()
+{
+    return originalPrice ;
+}
+
+void Game::setTitle(string title)
+{
+    this->title = title;
+}
+
+void Game::setReleaseDate(int releaseDate)
+{
+    this->releaseDate = releaseDate;
+}
+
+void Game::setOriginalPrice(float originalPrice)
+{
+    this->originalPrice = originalPrice;
 }

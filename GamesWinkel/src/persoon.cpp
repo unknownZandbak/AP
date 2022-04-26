@@ -2,76 +2,85 @@
 
 using std::cout, std::endl;
 
-Persoon::Persoon(string naam, float balans)
+Person::Person(string name, float budget)
 {
-    this->naam = naam;
-    this->balans = balans;
+    this->name = name;
+    this->budget = budget;
 }
 
-Persoon::~Persoon()
+Person::~Person()
 {
 
 }
 
-string Persoon::koop(Game game)
+void Person::buy(Game game)
 {
     // check of het persoon genoeg geld heeft om de game te kopen
-    if (game.get_prijs() <= balans){
+    if (game.getOriginalPrice() <= budget){
         // check of het de game al in bezit heeft
         for (Game x: games_in_bezit){
-            if (x.get_naam() == game.get_naam()){
-                return "Niet gelukt";
+            if (x.getTitle() == game.getTitle()){
+                cout << "Transactie Niet Gelukt" << endl;
+                return;
             }
         }
-        // haal het geld van het balans af en stop de game in zijn bezit
-        balans = balans - game.get_prijs();
+        // haal het geld van het budget af en stop de game in zijn bezit
+        budget = budget - game.CalculateCurrentPrice();
         games_in_bezit.push_back(game);
-        return "Gelukt";
+
+        cout << "Transactie Gelukt" << endl;
+        return;
     } 
     else {
-        return "Niet Gelukt";
+        cout << "Transactie Niet Gelukt" << endl;
+        return;
     }
 }
 
-string Persoon::verkoop(Game game, Persoon persoon)
+void Person::sell(Game game, Person persoon)
 {   
     // check of het persoon genoeg geld heeft om de game te kopen
-    if (game.get_prijs() <= persoon.balans){
+    if (game.getOriginalPrice() <= persoon.budget){
         // check of het de game al in bezit heeft
         for (Game x: persoon.games_in_bezit){
-            if (x.get_naam() == game.get_naam()){
-                return "Niet gelukt";
+            if (x.getTitle() == game.getTitle()){
+                cout << "Transactie Niet Gelukt" << endl;
+                return;
             }
         }
-        // Ik mis hier nog wel dat de game van per soon wordt afgehaal den dat hij zijn geld krijgt maar dat kreeg ik niet werkent
-        // haal het geld van het balans af en stop de game in zijn bezit
-        balans = balans + game.get_prijs();
-        persoon.balans = persoon.balans - game.get_prijs();
+        // TODO Zorg ervoor dat de game bij de verkoper uit zijn lijst van games gaat
+        budget = budget + game.CalculateCurrentPrice();
+        persoon.budget = persoon.budget - game.CalculateCurrentPrice();
         
         persoon.games_in_bezit.push_back(game);
 
-        return "Gelukt";
+        cout << "Transactie Niet Gelukt" << endl;
+        return;
     } 
     else {
-        return "Niet Gelukt";
+        cout << "Transactie Niet Gelukt" << endl;
+        return;
+
     }
 }
 
-vector<Game> Persoon::get_games()
+vector<Game> Person::getGames()
 {
     return games_in_bezit;
 }
 
-void Persoon::print_details()
+void Person::print_details()
 {
-    cout << naam << " heeft een budget van € " << balans
+    cout << name << " heeft een budget van € " << budget
     << " en bezit de volgende games:" << std::endl;
 
-    for(Game game: get_games())
+    for(Game game: getGames())
     {
-        cout << game.get_naam() << "; " 
-        << game.get_release_datum() << "; €"
-        << game.get_prijs() << endl;
+        cout << "-----" << endl;
+        cout << game.getTitle() << ";\nRlease date: " 
+        << game.getReleaseDate() << ";\nOriginal price: €"
+        << game.getOriginalPrice() << ";\nCurrent price: €"
+        << game.CalculateCurrentPrice() << endl;
     }
     cout << endl;
 }
