@@ -23,7 +23,7 @@ float Game::CalculateCurrentPrice()
     while (timeDiff > 0)
     {   
         timeDiff -= 1;
-        price = price * .3;
+        price = price * .7;
     }
     return price;
 }
