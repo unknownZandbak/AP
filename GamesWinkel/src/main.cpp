@@ -31,7 +31,6 @@ int main()
     p2.buy(g1);
     p3.buy(g3);
     
-    cout << tm_local->tm_year + 1900 << endl;
     // Druk personen p1, p2 en p3 nu af naar de console
     
     cout << "================" << endl;
