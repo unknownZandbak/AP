@@ -22,10 +22,11 @@ class Person
         void buy(Game game);
         void sell(Game game, Person person);
         
+        void print_details();
         void addGame(Game game);
         void removeGame(Game game);
-        void print_details();
 
         void setBudget(float budget);
         void setGames(vector<Game> games);
+        void setName(string name);
 };
