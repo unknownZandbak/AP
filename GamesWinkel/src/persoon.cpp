@@ -22,16 +22,18 @@ void Person::buy(Game game)
         // check of het de game al in bezit heeft
         for (Game x: games_in_bezit){
             if (x.getTitle() == game.getTitle()){
+                cout << "Buyer already owns game: ";
                 goto transaction_failed;
             }
         }
         // haal het geld van het budget af en stop de game in zijn bezit
         budget = budget - game.CalculateCurrentPrice();
-        games_in_bezit.push_back(game);
+        addGame(game);
 
         goto transaction_succes;
     } 
     else {
+        cout << "Buyer doesn't have enough money: ";
         goto transaction_failed;
     }
 
@@ -62,22 +64,28 @@ void Person::sell(Game game, Person persoon)
         // check of de koper de game al in bezit heeft
         for (Game x: persoon.games_in_bezit){
             if (x.getTitle() == game.getTitle()){
+                cout << "Buyer already owns game: ";
                 goto transaction_failed;
             }
         }
+        
         if(not owns_game){
+            cout << "Seller doesn't own game: ";
             goto transaction_failed;
-        }
+            }
+
         budget = budget + game.CalculateCurrentPrice();
         persoon.budget = persoon.budget - game.CalculateCurrentPrice();
         
-        persoon.addGame(game);
-        // persoon.games_in_bezit.push_back(game);
         this->removeGame(game);
+
+        // persoon.games_in_bezit.push_back(game);
+        persoon.addGame(game);
         goto transaction_succes;
         
     } 
     else {
+        cout << "Buyer doesn't have enough money: ";
         goto transaction_failed;
     }
     
@@ -112,7 +120,7 @@ void Person::print_details()
 }
 
 void Person::addGame(Game game){
-    games_in_bezit.push_back(game);
+    this->games_in_bezit.push_back(game);
 }
 
 void Person::removeGame(Game game){
