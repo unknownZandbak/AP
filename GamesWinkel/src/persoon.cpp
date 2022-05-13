@@ -74,15 +74,14 @@ void Person::sell(Game game, Person persoon)
             goto transaction_failed;
             }
 
-        budget = budget + game.CalculateCurrentPrice();
-        persoon.budget = persoon.budget - game.CalculateCurrentPrice();
+        budget = budget + game.CalculateCurrentPrice();        
+        float new_budget = persoon.getBudget() - game.CalculateCurrentPrice();
+        persoon.setBudget(new_budget);
         
-        this->removeGame(game);
-
-        // persoon.games_in_bezit.push_back(game);
+        removeGame(game);
         persoon.addGame(game);
+
         goto transaction_succes;
-        
     } 
     else {
         cout << "Buyer doesn't have enough money: ";
@@ -101,6 +100,16 @@ void Person::sell(Game game, Person persoon)
 vector<Game> Person::getGames()
 {
     return games_in_bezit;
+}
+
+string Person::getName()
+{
+    return name;
+}
+
+float Person::getBudget()
+{
+    return budget;  
 }
 
 void Person::print_details()
@@ -137,6 +146,7 @@ void Person::removeGame(Game game){
 void Person::setBudget(float budget){
     this->budget = budget;
 }
+
 void Person::setGames(vector<Game> games){
     this->games_in_bezit = games;
 }

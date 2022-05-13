@@ -17,6 +17,7 @@ class Person
         ~Person();
 
         vector<Game> getGames();
+        string getName();
         float getBudget();
         
         void buy(Game game);
