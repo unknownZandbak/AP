@@ -4,20 +4,20 @@
 class Pallet
 {
 private:
-    const int id;
-    int itemCount;
-    std::string itemName;
-    int itemCapacity;
+    int itemCount = 0;
+    std::string itemName = "PH";
+    int itemCapacity = 0;
+
 public:
-    Pallet(int id, std::string itemName, int itemCapacity, int itemCount);
+    Pallet();
+    Pallet(std::string itemName, int itemCapacity, int itemCount);
     ~Pallet();
 
-    int getId();
     std::string getItemName();
     int getItemCount();
     int getRemainingSpace();
 
-    void reallocateEmptyPallet(std::string itemName, int itemCapacity);
+    bool reallocateEmptyPallet(std::string itemName, int itemCapacity);
     bool takeOne();
     bool putOne();
 };

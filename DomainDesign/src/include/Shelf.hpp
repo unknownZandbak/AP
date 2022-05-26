@@ -1,20 +1,23 @@
 #include "Pallet.hpp"
-#include "IContainer.hpp"
+#include <vector>
+
+using std::vector;
 
 class Shelf
 {
 private:
-    const int id;
-    Pallet pallets[4];
-    bool slotStatus[4];
+    int capacity;
+    vector<Pallet> pallets;
 public:
-    Shelf(int id);
+    Shelf();
     ~Shelf();
 
-    int getId();
-    bool * getSlotStatus();
-    Pallet * getpallets();
+    int getCapacity();
+    int getSlotStatus();
+    vector<Pallet> getPallets();
 
-    Pallet removePallet(int slot);
+    bool takeItems(int slot, int amount);
+
+    bool removePallet(int slot);
     bool insertPallet(int slot, Pallet pallet);
 };

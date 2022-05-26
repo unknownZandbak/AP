@@ -1,28 +1,27 @@
-#include "Task.hpp"
 #include "Employee.hpp"
 #include "Shelf.hpp"
 #include <vector>
 
-using std::vector;
+using std::vector, std::string;
 
 class Warehouse
 {
+private:
+    vector<Employee> employees;
+    vector<Shelf> shelves;
+
 public:
     Warehouse();
-    ~Warehouse();
-
-    TaskStatus getTotalTaskStatus();
-    TaskStatus performOneTask();
-    TaskStatus performeAllTasks();
+    // ~Warehouse();
 
     vector<Employee> getEmployees();
-    vector<Task> getTasks();
     vector<Shelf> getShelves();
 
     void addEmployee(Employee employee);
     void setEmployees(vector<Employee> employees);
-    void addTask(Task task);
-    void setTasks(vector<Task> tasks);
     void addShelf(Shelf shelf);
     void setShelves(vector<Shelf> shelves);
+
+    bool rearangeShelf(Shelf& shelf);
+    bool pickItems(string itemName, int itemCount);
 };
