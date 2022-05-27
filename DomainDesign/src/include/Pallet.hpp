@@ -1,23 +1,24 @@
+#include <vector>
 #include <iostream>
 #include "IContainer.hpp"
+
+using std::vector, std::string;
 
 class Pallet
 {
 private:
-    int itemCount = 0;
-    std::string itemName = "PH";
-    int itemCapacity = 0;
+    int itemCount;
+    string itemName;
+    int itemCapacity;
 
 public:
-    Pallet();
-    Pallet(std::string itemName, int itemCapacity, int itemCount);
-    ~Pallet();
+    Pallet(string itemName, int itemCapacity, int itemCount);
 
     std::string getItemName();
     int getItemCount();
     int getRemainingSpace();
 
-    bool reallocateEmptyPallet(std::string itemName, int itemCapacity);
+    bool reallocateEmptyPallet(string itemName, int itemCapacity);
     bool takeOne();
     bool putOne();
 };

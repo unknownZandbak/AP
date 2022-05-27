@@ -1,8 +1,5 @@
 #include "Employee.hpp"
 #include "Shelf.hpp"
-#include <vector>
-
-using std::vector, std::string;
 
 class Warehouse
 {
@@ -12,7 +9,6 @@ private:
 
 public:
     Warehouse();
-    // ~Warehouse();
 
     vector<Employee> getEmployees();
     vector<Shelf> getShelves();

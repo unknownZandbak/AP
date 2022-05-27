@@ -5,8 +5,6 @@ Employee::Employee(const std::string name, bool forkLiftCertificate){
     this->forkLiftCertificate = forkLiftCertificate;
 }
 
-Employee::~Employee(){}
-
 std::string Employee::getName(){
     return name;
 }

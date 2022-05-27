@@ -1,16 +1,13 @@
 #include "Pallet.hpp"
-#include <vector>
-
-using std::vector;
 
 class Shelf
 {
 private:
-    int capacity;
+    const int capacity = 4;
     vector<Pallet> pallets;
+
 public:
     Shelf();
-    ~Shelf();
 
     int getCapacity();
     int getSlotStatus();

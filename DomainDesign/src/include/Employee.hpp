@@ -1,4 +1,4 @@
-#include "iostream"
+#include <iostream>
 
 class Employee
 {
@@ -6,9 +6,9 @@ private:
     std::string name;
     bool busy;
     bool forkLiftCertificate;
+    
 public:
     Employee(std::string name, bool forkLiftCertificate);
-    ~Employee();
 
     std::string getName();
     bool getBusy();

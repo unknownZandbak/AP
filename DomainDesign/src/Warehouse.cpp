@@ -32,7 +32,7 @@ void Warehouse::setShelves(vector<Shelf> shelves){
 }
 
 bool Warehouse::rearangeShelf(Shelf& shelf){
-
+    return true;
 }
 
 bool Warehouse::pickItems(string itemName, int itemCount){
@@ -51,7 +51,6 @@ bool Warehouse::pickItems(string itemName, int itemCount){
                 currentAmount += pallets[y].getItemCount();
             }
         }
-
     }
 
     if (currentAmount >= itemCount){
