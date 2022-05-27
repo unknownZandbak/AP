@@ -7,7 +7,7 @@ private:
     vector<Pallet> pallets;
 
 public:
-    Shelf();
+    Shelf(vector<Pallet> pallets);
 
     int getCapacity();
     int getSlotStatus();

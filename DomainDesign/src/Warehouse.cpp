@@ -5,7 +5,10 @@
 using std::cout, std::endl, std::unordered_map, std::pair,
         std::tuple, std::make_tuple, std::get;
 
-Warehouse::Warehouse(){}
+Warehouse::Warehouse(vector<Employee> employees,vector<Shelf> shelves){
+    this->employees = employees;
+    this->shelves = shelves;
+}
 
 vector<Employee> Warehouse::getEmployees(){
     return employees;

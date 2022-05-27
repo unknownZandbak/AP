@@ -8,7 +8,7 @@ private:
     vector<Shelf> shelves;
 
 public:
-    Warehouse();
+    Warehouse(vector<Employee> employees, vector<Shelf> shelves);
 
     vector<Employee> getEmployees();
     vector<Shelf> getShelves();

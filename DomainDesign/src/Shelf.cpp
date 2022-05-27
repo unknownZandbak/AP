@@ -1,6 +1,8 @@
 #include "include/Shelf.hpp"
 
-Shelf::Shelf(){}
+Shelf::Shelf(vector<Pallet> pallets){
+    this->pallets = pallets;
+}
 
 vector<Pallet> Shelf::getPallets(){
     return pallets;
