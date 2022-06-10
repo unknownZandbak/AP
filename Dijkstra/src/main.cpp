@@ -1,8 +1,8 @@
 #include <map>
-#include <iostream>
 #include <vector>
+#include "include/reis.hpp"
 
-using std::map, std::string, std::vector, std::pair, std::make_pair, std::cout, std::endl;
+using std::map, std::vector, std::pair, std::make_pair, std::cout, std::endl;
 
 template <typename T>
 class Graph {
@@ -37,16 +37,24 @@ public:
 int main(){
     Graph <string> g;
      
-    g.add_edge("Delhi", "Jaipur", 250);
-    g.add_edge("Delhi", "Shamli", 147);
-    g.add_edge("Delhi", "Mumbai", 1100);
-    g.add_edge("Shamli", "Lucknow", 377);
-    g.add_edge("Shamli", "Baghpat", 50);
-    g.add_edge("Jaipur", "Bikaner", 300);
-    g.add_edge("Udaipur", "Jaipur", 600);
-    g.add_edge("Uttarlai", "Jaipur", 500);
-    g.add_edge("Jaipur", "Jodhpur", 150);
-    g.add_edge("Mumbai", "Jaipur", 1000);
+    g.add_edge("S", "A", 7);
+    g.add_edge("S", "B", 2);
+    g.add_edge("S", "C", 3);
+    g.add_edge("A", "D", 4);
+    g.add_edge("A", "B", 3);
+    g.add_edge("B", "D", 4);
+    g.add_edge("B", "H", 1);
+    g.add_edge("C", "L", 2);
+    g.add_edge("D", "F", 5);
+    g.add_edge("F", "H", 3);
+    g.add_edge("H", "G", 2);
+    g.add_edge("G", "E", 2);
+    g.add_edge("E", "K", 5);
+    g.add_edge("K", "I", 4);
+    g.add_edge("K", "J", 4);
+    g.add_edge("I", "J", 6);
+    g.add_edge("I", "L", 4);
+    g.add_edge("J", "L", 4);
  
     g.display_graph();
 
