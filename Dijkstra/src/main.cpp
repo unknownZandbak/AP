@@ -32,9 +32,14 @@ public:
             cout << endl;
         }
     }
+    // Find the shortest path form 2 nodes in a graph 
+    Reis findShortestPath(T src, T dest){
+        cout << "Finding shortest route from:\n" << src << "to" << dest << endl;
+    }
 };
 
 int main(){
+    // init a graph for using the algorithm with
     Graph <string> g;
      
     g.add_edge("S", "A", 7);
@@ -55,8 +60,11 @@ int main(){
     g.add_edge("I", "J", 6);
     g.add_edge("I", "L", 4);
     g.add_edge("J", "L", 4);
- 
+
+    // give a overview of all the edges per node
     g.display_graph();
+
+    Reis rSE = g.findShortestPath("S", "E");
 
     return 0;
 }
